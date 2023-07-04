@@ -12,9 +12,6 @@ import { formatEther } from "ethers/lib/utils";
 
 dotenv.config();
 async function main() {
-    const multiplier: BigNumber = BigNumber.from("97")
-        .mul(BigNumber.from("10").pow(16))
-        .div(BigNumber.from("100"));
     const bnbProvider = new providers.JsonRpcProvider(process.env.BSC_RPC);
 
     const bnbSigner = new ethers.Wallet(
@@ -58,10 +55,7 @@ async function main() {
                 console.log("Successfully minted");
                 return;
             }
-            const amountBNB = (amount as BigNumber)
-                .mul(multiplier)
-                .div(BigNumber.from("10").pow(16))
-                .toString();
+            const amountBNB = (amount as BigNumber).toString();
             console.log(
                 from,
                 "has requested to bridge",
@@ -98,10 +92,7 @@ async function main() {
                 console.log("Successfully minted");
                 return;
             }
-            const amountWMATIC = (amount as BigNumber)
-                .mul(multiplier)
-                .div(BigNumber.from("10").pow(16))
-                .toString();
+            const amountWMATIC = (amount as BigNumber).toString();
             console.log(
                 from,
                 "has requested to bridge",
@@ -138,10 +129,7 @@ async function main() {
                 console.log("Successfully minted");
                 return;
             }
-            const amountBNB = (amount as BigNumber)
-                .mul(multiplier)
-                .div(BigNumber.from("10").pow(16))
-                .toString();
+            const amountBNB = (amount as BigNumber).toString();
             console.log(
                 from,
                 "has requested to bridge",
@@ -178,10 +166,7 @@ async function main() {
                 console.log("Successfully minted");
                 return;
             }
-            const amountWMATIC = (amount as BigNumber)
-                .mul(multiplier)
-                .div(BigNumber.from("10").pow(16))
-                .toString();
+            const amountWMATIC = (amount as BigNumber).toString();
             console.log(
                 from,
                 "has requested to bridge",
