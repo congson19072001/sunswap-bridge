@@ -24,7 +24,7 @@
     "keywords": [
         "nft"
     ],
-    "author": "ndtr2000",
+    "author": "sonnvc19072001",
     "license": "MIT",
     "bugs": {
         "url": ""
@@ -52,7 +52,7 @@
         "prettier-plugin-solidity": "^1.1.2",
         "solhint": "^3.4.0",
         "solhint-plugin-prettier": "^0.0.5",
-        "web3": "^1.8.2"
+        "web3": "^4.0.2"
     },
     "dependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
