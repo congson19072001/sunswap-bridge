@@ -45,6 +45,7 @@ contract BridgeBase {
     uint nonce,
     bytes calldata signature
   ) external {
+    require(msg.sender == admin, 'only admin');
     bytes32 message = prefixed(keccak256(abi.encodePacked(
       from, 
       to, 

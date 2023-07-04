@@ -12,6 +12,9 @@ import { formatEther } from "ethers/lib/utils";
 
 dotenv.config();
 async function main() {
+    const multiplier: BigNumber = BigNumber.from("97")
+        .mul(BigNumber.from("10").pow(16))
+        .div(BigNumber.from("100"));
     const bnbProvider = new providers.JsonRpcProvider(process.env.BSC_RPC);
 
     const bnbSigner = new ethers.Wallet(
@@ -51,13 +54,19 @@ async function main() {
     bnbSideBridge_WBNB.on(
         "Transfer",
         async (from, to, amount, date, nonce, signature, step) => {
-            if (step != 0) return;
-            const amountBNB = (amount as BigNumber).toString();
+            if (step != 0) {
+                console.log("Successfully minted");
+                return;
+            }
+            const amountBNB = (amount as BigNumber)
+                .mul(multiplier)
+                .div(BigNumber.from("10").pow(16))
+                .toString();
             console.log(
                 from,
                 "has requested to bridge",
                 formatEther((amount as BigNumber).toString()),
-                "WBNB",
+                "WBNB from Binance Chain",
             );
 
             try {
@@ -73,6 +82,7 @@ async function main() {
                     formatEther((amount as BigNumber).toString()),
                     "Wrapped BNB to",
                     to,
+                    "on Polygon chain",
                 );
             } catch (e) {
                 console.log("Error in minting", e);
@@ -84,13 +94,19 @@ async function main() {
     bnbSideBridge_WMATIC.on(
         "Transfer",
         async (from, to, amount, date, nonce, signature, step) => {
-            if (step != 0) return;
-            const amountWMATIC = (amount as BigNumber).toString();
+            if (step != 0) {
+                console.log("Successfully minted");
+                return;
+            }
+            const amountWMATIC = (amount as BigNumber)
+                .mul(multiplier)
+                .div(BigNumber.from("10").pow(16))
+                .toString();
             console.log(
                 from,
                 "has requested to bridge",
                 formatEther((amount as BigNumber).toString()),
-                "WMATIC",
+                "WMATIC from Binance Chain",
             );
 
             try {
@@ -106,6 +122,7 @@ async function main() {
                     formatEther((amount as BigNumber).toString()),
                     "Wrapped WMATIC to",
                     to,
+                    "on Polygon chain",
                 );
             } catch (e) {
                 console.log("Error in minting", e);
@@ -117,39 +134,35 @@ async function main() {
     polygonSideBridge_WBNB.on(
         "Transfer",
         async (from, to, amount, date, nonce, signature, step) => {
-            if (step != 0) return;
-            const amountBNB = (amount as BigNumber).toString();
+            if (step != 0) {
+                console.log("Successfully minted");
+                return;
+            }
+            const amountBNB = (amount as BigNumber)
+                .mul(multiplier)
+                .div(BigNumber.from("10").pow(16))
+                .toString();
             console.log(
                 from,
                 "has requested to bridge",
                 formatEther((amount as BigNumber).toString()),
-                "WBNB",
+                "WBNB from Polygon chain",
             );
 
             try {
-                const gasFee: BigNumber =
-                    await bnbSideBridge_WBNB.estimateGas.mint(
-                        from,
-                        to,
-                        amount,
-                        nonce,
-                        signature,
-                    );
                 await bnbSideBridge_WBNB.mint(
                     from,
                     to,
                     amountBNB,
                     nonce,
                     signature,
-                    {
-                        gasLimit: gasFee,
-                    },
                 );
                 console.log(
                     "Minted",
                     formatEther((amount as BigNumber).toString()),
                     "Wrapped BNB to",
                     to,
+                    "on Binance chain",
                 );
             } catch (e) {
                 console.log("Error in minting", e);
@@ -161,13 +174,19 @@ async function main() {
     polygonSideBridge_WMATIC.on(
         "Transfer",
         async (from, to, amount, date, nonce, signature, step) => {
-            if (step != 0) return;
-            const amountWMATIC = (amount as BigNumber).toString();
+            if (step != 0) {
+                console.log("Successfully minted");
+                return;
+            }
+            const amountWMATIC = (amount as BigNumber)
+                .mul(multiplier)
+                .div(BigNumber.from("10").pow(16))
+                .toString();
             console.log(
                 from,
                 "has requested to bridge",
                 formatEther((amount as BigNumber).toString()),
-                "WMATIC",
+                "WMATIC from Polygon chain",
             );
 
             try {
@@ -183,6 +202,7 @@ async function main() {
                     formatEther((amount as BigNumber).toString()),
                     "Wrapped WMATIC to",
                     to,
+                    "on Binance chain",
                 );
             } catch (e) {
                 console.log("Error in minting", e);
