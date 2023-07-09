@@ -1,0 +1,19 @@
+{
+  "apps": [
+    {
+      "name": "sunswap_bridge",
+      "script": "scripts/main.js",
+      "env": {
+        "PROVIDER_URL": "https://rinkeby.infura.io/v3/fca5c00ba9a04c7c934d026632ed8abc",
+        "BASE_METADATA_URI": "https://assets.metadata.com/",
+        "PRIVATE_KEY": "a69839f707b1e0029f5891915d4666e95a01af1c675a478dc3742792df4ccc2a",
+        "POLYGON_RPC": "https://matic-mumbai.chainstacklabs.com",
+        "BSC_RPC": "https://bsc-testnet.publicnode.com",
+        "ETHERSCAN_KEY": "N72PN2H7HCUI8P3KSI9CW4UEDVJ123456",
+        "BSCSCAN_KEY": "123452H7HCUI8P3KSI9CW4UEDVJ123456",
+        "POLYGONSCAN_KEY": "9GTKI72R4CNGQE5QGI2UZAWKW3ARPWAY7Z",
+        "INFURA_API_KEY": "7168c7c782b1438cd145612002dfbe3d"
+      }
+    }
+  ]
+}
