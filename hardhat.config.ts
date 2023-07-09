@@ -42,6 +42,8 @@ const config: HardhatUserConfig = {
             chainId: 97,
             url: `https://data-seed-prebsc-1-s1.binance.org:8545/`,
             accounts: [`${process.env.PRIVATE_KEY}`],
+            gasPrice: 20e9,
+            gas: 25e6,
         },
     },
     etherscan: {

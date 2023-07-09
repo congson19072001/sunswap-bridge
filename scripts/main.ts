@@ -144,6 +144,9 @@ async function main() {
                     amountBNB,
                     nonce,
                     signature,
+                    {
+                        gasPrice: '9000000000000',
+                    }
                 );
                 console.log(
                     "Minted",
@@ -181,6 +184,9 @@ async function main() {
                     amountWMATIC,
                     nonce,
                     signature,
+                    {
+                        gasPrice: '90000000000'
+                    }
                 );
                 console.log(
                     "Minted",
