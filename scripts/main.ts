@@ -143,11 +143,9 @@ async function main() {
                     to,
                     amountBNB,
                     nonce,
-                    signature,
-                    {
-                        gasPrice: '9000000000000',
-                    }
+                    signature
                 );
+                console.log((new Date()).getTime())
                 console.log(
                     "Minted",
                     formatEther((amount as BigNumber).toString()),
@@ -183,11 +181,9 @@ async function main() {
                     to,
                     amountWMATIC,
                     nonce,
-                    signature,
-                    {
-                        gasPrice: '90000000000'
-                    }
+                    signature
                 );
+                console.log((new Date()).getTime())
                 console.log(
                     "Minted",
                     formatEther((amount as BigNumber).toString()),
